@@ -1,0 +1,74 @@
+
+   <!-- MultiStep Form -->
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Tire Fitment</strong></h2>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li [ngClass]="currentTab>=0?'active':''" id="account">
+                                    <strong>Year</strong>
+                                <p><strong>{{selectedYear}}</strong></p>
+                                </li>
+                                <li id="personal" [ngClass]="currentTab>=1?'active':''">
+                                    <strong>Make</strong>
+                                    <p><strong>{{selectedMake}}</strong></p></li>
+                                <li id="payment" [ngClass]="currentTab>=2?'active':''">
+                                    <strong>Model</strong>
+                                    <p><strong>{{selectedModel}}</strong></p></li>
+                                <li id="confirm" [ngClass]="currentTab>=3?'active':''">
+                                    <strong>Style</strong>
+                                    <p><strong>{{selectedTrim}}</strong></p></li>
+                            </ul>
+                            <!-- fieldsets -->
+                            <fieldset *ngIf="currentTab==0">
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center mb-3">Vehicle Manufacture Year </h2>
+                                    <div class="row m-0 p-0">
+                                        <ng-container  *ngFor="let year of years$">
+                                        <div class="col-sm-4 text-underline" (click)="onSelectedYear(year)">{{year}}</div>
+                                    </ng-container>
+                                       </div>
+                                </div>
+                            </fieldset>
+                            <fieldset *ngIf="currentTab==1">
+                                <div class="form-card">
+                                    <h2 class="fs-title">Vehicle Make Year </h2>
+                                    <div class="row m-0 p-0">
+                                        <ng-container  *ngFor="let make of makes$">
+                                            <div class="col-sm-4 text-underline" (click)="onSelectedMake(make)">{{make}}</div>
+                                        </ng-container>
+                                             </div>
+                                </div>
+                            </fieldset>
+                            <fieldset *ngIf="currentTab==2">
+                                <div class="form-card">
+                                    <h2 class="fs-title">Vehicle Model Year </h2>
+                                    <div class="row m-0 p-0">
+                                        <ng-container  *ngFor="let model of models$">
+                                            <div class="col-sm-4 text-underline" (click)="onSelectedModel(model)">{{model}}</div>
+                                        </ng-container>
+                                       </div>
+                                </div>
+                            </fieldset>
+                            <fieldset *ngIf="currentTab==3">
+                                <div class="form-card">
+                                    <h2 class="fs-title">Vehicle Trim Year </h2>
+                                    <div class="row m-0 p-0">
+                                        <ng-container  *ngFor="let trim of trims$">
+                                            <div class="col-sm-4 text-underline" (click)="onSelectedTrim(trim)">{{trim}}</div>
+                                        </ng-container>
+                                     </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
